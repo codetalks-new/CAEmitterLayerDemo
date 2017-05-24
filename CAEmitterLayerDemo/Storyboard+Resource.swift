@@ -1,4 +1,4 @@
-// Generated using SwiftGen, by O.Halligon — https://github.com/AliSoftware/SwiftGen
+// Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
 
 import Foundation
 import UIKit
@@ -48,8 +48,8 @@ enum StoryboardScene {
   enum Main: String, StoryboardSceneType {
     static let storyboardName = "Main"
 
-    static func initialViewController() -> CAEmitterLayerDemo.ViewController {
-      guard let vc = storyboard().instantiateInitialViewController() as? CAEmitterLayerDemo.ViewController else {
+    static func initialViewController() -> CAEmitterLayerDemo.MainViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? CAEmitterLayerDemo.MainViewController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
       }
       return vc
@@ -64,9 +64,31 @@ enum StoryboardScene {
       return vc
     }
 
-    case scaleCtrlScene = "scaleCtrl"
-    static func instantiateScaleCtrl() -> UIViewController {
-      return StoryboardScene.Main.scaleCtrlScene.viewController()
+    case emitterLayerCtrlScene = "emitterLayerCtrl"
+    static func instantiateEmitterLayerCtrl() -> CAEmitterLayerDemo.EmitterLayerViewController {
+      guard let vc = StoryboardScene.Main.emitterLayerCtrlScene.viewController() as? CAEmitterLayerDemo.EmitterLayerViewController
+      else {
+        fatalError("ViewController 'emitterLayerCtrl' is not of the expected class CAEmitterLayerDemo.EmitterLayerViewController.")
+      }
+      return vc
+    }
+
+    case motionAndTemporalCtrlScene = "motionAndTemporalCtrl"
+    static func instantiateMotionAndTemporalCtrl() -> CAEmitterLayerDemo.MotionAndTemporalCtrlViewController {
+      guard let vc = StoryboardScene.Main.motionAndTemporalCtrlScene.viewController() as? CAEmitterLayerDemo.MotionAndTemporalCtrlViewController
+      else {
+        fatalError("ViewController 'motionAndTemporalCtrl' is not of the expected class CAEmitterLayerDemo.MotionAndTemporalCtrlViewController.")
+      }
+      return vc
+    }
+
+    case scaleAndFilterCtrlScene = "scaleAndFilterCtrl"
+    static func instantiateScaleAndFilterCtrl() -> CAEmitterLayerDemo.ScaleAndFilterCtrlViewController {
+      guard let vc = StoryboardScene.Main.scaleAndFilterCtrlScene.viewController() as? CAEmitterLayerDemo.ScaleAndFilterCtrlViewController
+      else {
+        fatalError("ViewController 'scaleAndFilterCtrl' is not of the expected class CAEmitterLayerDemo.ScaleAndFilterCtrlViewController.")
+      }
+      return vc
     }
   }
 }

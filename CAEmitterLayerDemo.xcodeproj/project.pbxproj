@@ -7,27 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E250C5E1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E250C5D1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift */; };
+		3E3307221ED5282E0092CF7D /* ScaleAndFilterCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307211ED5282E0092CF7D /* ScaleAndFilterCtrlViewController.swift */; };
+		3E3307241ED535780092CF7D /* EmitterLayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307231ED535780092CF7D /* EmitterLayerViewController.swift */; };
+		3E3307271ED566070092CF7D /* SimplePickerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307261ED566070092CF7D /* SimplePickerAdapter.swift */; };
+		3E3307291ED5661F0092CF7D /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307281ED5661F0092CF7D /* ActionSheetPresentationController.swift */; };
+		3E33072B1ED566C50092CF7D /* BasePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33072A1ED566C50092CF7D /* BasePickerViewController.swift */; };
+		3E33072D1ED568420092CF7D /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33072C1ED568420092CF7D /* SimplePickerViewController.swift */; };
 		3EA898671EB99D60005C9120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA898661EB99D60005C9120 /* AppDelegate.swift */; };
-		3EA898691EB99D60005C9120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA898681EB99D60005C9120 /* ViewController.swift */; };
+		3EA898691EB99D60005C9120 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA898681EB99D60005C9120 /* MainViewController.swift */; };
 		3EA8986C1EB99D60005C9120 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA8986A1EB99D60005C9120 /* Main.storyboard */; };
 		3EA8986E1EB99D60005C9120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA8986D1EB99D60005C9120 /* Assets.xcassets */; };
 		3EA898711EB99D60005C9120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA8986F1EB99D60005C9120 /* LaunchScreen.storyboard */; };
 		3EA8987C1EBA0980005C9120 /* Storyboard+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8987B1EBA0980005C9120 /* Storyboard+Resource.swift */; };
-		3EA8987F1EBA1568005C9120 /* ColorCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8987E1EBA1568005C9120 /* ColorCtrlViewController.swift */; };
-		3ED12B441EBCB6B000BABB8A /* ColorCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED12B431EBCB6B000BABB8A /* ColorCtrl.swift */; };
+		3EA8987F1EBA1568005C9120 /* BaseCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA8987E1EBA1568005C9120 /* BaseCtrlViewController.swift */; };
+		3ED12B441EBCB6B000BABB8A /* ColorCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED12B431EBCB6B000BABB8A /* ColorCtrlViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E250C5D1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionAndTemporalCtrlViewController.swift; sourceTree = "<group>"; };
+		3E3307211ED5282E0092CF7D /* ScaleAndFilterCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAndFilterCtrlViewController.swift; sourceTree = "<group>"; };
+		3E3307231ED535780092CF7D /* EmitterLayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmitterLayerViewController.swift; sourceTree = "<group>"; };
+		3E3307261ED566070092CF7D /* SimplePickerAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePickerAdapter.swift; sourceTree = "<group>"; };
+		3E3307281ED5661F0092CF7D /* ActionSheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationController.swift; sourceTree = "<group>"; };
+		3E33072A1ED566C50092CF7D /* BasePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePickerViewController.swift; sourceTree = "<group>"; };
+		3E33072C1ED568420092CF7D /* SimplePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePickerViewController.swift; sourceTree = "<group>"; };
 		3EA898631EB99D60005C9120 /* CAEmitterLayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAEmitterLayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA898661EB99D60005C9120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3EA898681EB99D60005C9120 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EA898681EB99D60005C9120 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3EA8986B1EB99D60005C9120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EA8986D1EB99D60005C9120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EA898701EB99D60005C9120 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EA898721EB99D60005C9120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EA8987B1EBA0980005C9120 /* Storyboard+Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+Resource.swift"; sourceTree = "<group>"; };
-		3EA8987E1EBA1568005C9120 /* ColorCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCtrlViewController.swift; sourceTree = "<group>"; };
-		3ED12B431EBCB6B000BABB8A /* ColorCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCtrl.swift; sourceTree = "<group>"; };
+		3EA8987E1EBA1568005C9120 /* BaseCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCtrlViewController.swift; sourceTree = "<group>"; };
+		3ED12B431EBCB6B000BABB8A /* ColorCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCtrlViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3307251ED565FC0092CF7D /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				3E3307281ED5661F0092CF7D /* ActionSheetPresentationController.swift */,
+				3E3307261ED566070092CF7D /* SimplePickerAdapter.swift */,
+				3E33072A1ED566C50092CF7D /* BasePickerViewController.swift */,
+				3E33072C1ED568420092CF7D /* SimplePickerViewController.swift */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		3EA8985A1EB99D60005C9120 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +85,19 @@
 		3EA898651EB99D60005C9120 /* CAEmitterLayerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3ED12B431EBCB6B000BABB8A /* ColorCtrl.swift */,
+				3E3307251ED565FC0092CF7D /* Vendor */,
+				3E3307211ED5282E0092CF7D /* ScaleAndFilterCtrlViewController.swift */,
+				3E250C5D1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift */,
+				3ED12B431EBCB6B000BABB8A /* ColorCtrlViewController.swift */,
 				3EA8987B1EBA0980005C9120 /* Storyboard+Resource.swift */,
 				3EA898661EB99D60005C9120 /* AppDelegate.swift */,
-				3EA898681EB99D60005C9120 /* ViewController.swift */,
+				3EA898681EB99D60005C9120 /* MainViewController.swift */,
 				3EA8986A1EB99D60005C9120 /* Main.storyboard */,
 				3EA8986D1EB99D60005C9120 /* Assets.xcassets */,
 				3EA8986F1EB99D60005C9120 /* LaunchScreen.storyboard */,
 				3EA898721EB99D60005C9120 /* Info.plist */,
-				3EA8987E1EBA1568005C9120 /* ColorCtrlViewController.swift */,
+				3EA8987E1EBA1568005C9120 /* BaseCtrlViewController.swift */,
+				3E3307231ED535780092CF7D /* EmitterLayerViewController.swift */,
 			);
 			path = CAEmitterLayerDemo;
 			sourceTree = "<group>";
@@ -163,11 +192,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA898691EB99D60005C9120 /* ViewController.swift in Sources */,
+				3E3307271ED566070092CF7D /* SimplePickerAdapter.swift in Sources */,
+				3EA898691EB99D60005C9120 /* MainViewController.swift in Sources */,
+				3E3307221ED5282E0092CF7D /* ScaleAndFilterCtrlViewController.swift in Sources */,
+				3E33072B1ED566C50092CF7D /* BasePickerViewController.swift in Sources */,
+				3E33072D1ED568420092CF7D /* SimplePickerViewController.swift in Sources */,
+				3E3307241ED535780092CF7D /* EmitterLayerViewController.swift in Sources */,
 				3EA8987C1EBA0980005C9120 /* Storyboard+Resource.swift in Sources */,
 				3EA898671EB99D60005C9120 /* AppDelegate.swift in Sources */,
-				3EA8987F1EBA1568005C9120 /* ColorCtrlViewController.swift in Sources */,
-				3ED12B441EBCB6B000BABB8A /* ColorCtrl.swift in Sources */,
+				3E250C5E1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift in Sources */,
+				3EA8987F1EBA1568005C9120 /* BaseCtrlViewController.swift in Sources */,
+				3ED12B441EBCB6B000BABB8A /* ColorCtrlViewController.swift in Sources */,
+				3E3307291ED5661F0092CF7D /* ActionSheetPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

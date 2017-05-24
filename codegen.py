@@ -10,32 +10,33 @@ def camelize(name):
     return name[0].upper() + name[1:]
 
 
-def color_ctrl():
-    speed_props = ['redSpeed','greenSpeed','blueSpeed','alphaSpeed']
-    range_props = ['redRange','greenRange','blueRange','alphaRange']
+def base_ctrl():
+    position_props = ['x','y', 'z']
+    size_props = ['width', 'height', 'depth']
+    all_props = position_props + size_props
 
     stats = []
     stats.append("""
     import UIKit
-    class ColorCtrlViewController: BaseCtrlViewController{
+    class EmitterLayerViewController: UIViewController{
                  """)
 
     stats.append("""
-      override func onEmitterCellChanged(newCell:CAEmitterCell){
+      override func onEmitterLayerSetup(layer:CAEmitterLayer){
       """)
 
     init_tpl = Template("""
-    ${var}Slider.value = newCell.${var}
-    ${var}TextField.text = newCell.${var}.description
+    ${var}Slider.value = Float(layer.${var})
+    ${var}TextField.text = layer.${var}.description
         """)
-    for var_name in  range_props + speed_props :
+    for var_name in  all_props :
         init_stat = init_tpl.substitute(var=var_name)
         stats.append(init_stat)
     stats.append("""
       }
     """)
 
-    for var_name in  range_props + speed_props :
+    for var_name in  all_props:
         decl_stat = "@IBOutlet weak var %sSlider: UISlider!" % var_name
         stats.append(decl_stat)
         decl_stat = "@IBOutlet weak var %sTextField: UITextField!" % var_name
@@ -67,12 +68,12 @@ def color_ctrl():
 
     stats.append("\n}")
 
-    with codecs.open(os.path.join(SRC_DIR,'ColorCtrl.swift'),mode='w', encoding='utf-8') as fout:
+    with codecs.open(os.path.join(SRC_DIR,'EmitterLayerViewController.swift'),mode='w', encoding='utf-8') as fout:
         fout.write("\n".join(stats))
         # for stat in stats:
             # fout.write(stat+"\n")
 
 if __name__ == '__main__':
-    color_ctrl()
+    base_ctrl()
 
 
