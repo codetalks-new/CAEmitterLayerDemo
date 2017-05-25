@@ -33,27 +33,28 @@ class ScaleAndFilterCtrlViewController: BaseCtrlViewController{
     scaleSlider.minimumValue = 0
     scaleSlider.maximumValue = 3
     scaleSlider.value = Float(newCell.scale)
-    scaleTextField.text = newCell.scale.description
+    onScaleChanged(scaleSlider)
     
 
 
     scaleSpeedSlider.minimumValue = -1
     scaleSpeedSlider.maximumValue = 1
     scaleSpeedSlider.value = Float(newCell.scaleSpeed)
-    scaleSpeedTextField.text = newCell.scaleSpeed.description
+    onScaleSpeedChanged(scaleSpeedSlider)
 
 
     scaleRangeSlider.minimumValue = 0
     scaleRangeSlider.maximumValue = 3
     scaleRangeSlider.value = Float(newCell.scaleRange)
-    scaleRangeTextField.text = newCell.scaleRange.description
+    onScaleRangeChanged(scaleRangeSlider)
 
     magnificationFilterSlider.minimumValue = 0
     magnificationFilterSlider.maximumValue = 2.5
     magnificationFilterTextField.isEnabled = false
     if let cafilter = CAFilter.findBy(filter: newCell.magnificationFilter){
       magnificationFilterSlider.value = Float(cafilter.rawValue)
-      magnificationFilterTextField.text = newCell.magnificationFilter
+      onMagnificationFilterChanged(magnificationFilterSlider)
+
     }
 
 
@@ -63,13 +64,13 @@ class ScaleAndFilterCtrlViewController: BaseCtrlViewController{
 
     if let cafilter = CAFilter.findBy(filter: newCell.magnificationFilter){
       minificationFilterSlider.value = Float(cafilter.rawValue)
-      magnificationFilterTextField.text = newCell.magnificationFilter
+      onMinificationFilterChanged(minificationFilterSlider)
     }
 
 
     minificationFilterBiasTextField.isEnabled = false
     minificationFilterBiasSlider.value = Float(newCell.minificationFilterBias)
-    minificationFilterBiasTextField.text = newCell.minificationFilterBias.description
+    onMinificationFilterBiasChanged(minificationFilterBiasSlider)
 
 
   }

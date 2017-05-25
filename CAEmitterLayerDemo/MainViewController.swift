@@ -35,18 +35,23 @@ class MainViewController: UIViewController {
     // configure emitter
     emitter.renderMode = kCAEmitterLayerAdditive
     emitter.emitterPosition = CGPoint(x:emitter.frame.midX,y:emitter.frame.midY)
+    emitter.emitterSize = CGSize(width: 10, height: 10)
+    emitter.emitterShape = kCAEmitterLayerRectangle
 
     // create particle template
     let emitterCell = CAEmitterCell()
     emitterCell.name = "fire"
     emitterCell.contents = #imageLiteral(resourceName: "Particle").cgImage
-    emitterCell.birthRate = 150
-    emitterCell.lifetime = 5.0
-    emitterCell.color = UIColor(red: 0.5, green: 0.5, blue: 0.1, alpha: 1.0).cgColor
+    emitterCell.birthRate = 300
+    emitterCell.lifetime = 2.0
+    emitterCell.lifetimeRange = 0.8
+    emitterCell.scale = 0.20
+    emitterCell.color = UIColor(red: 0.6, green: 0.0, blue: 0.0, alpha: 1.0).cgColor
     emitterCell.alphaSpeed = -0.4
-    emitterCell.redRange = 0.2
+    emitterCell.redSpeed = 0.6
+    emitterCell.blueSpeed = 0.12
     emitterCell.velocity = 50
-    emitterCell.velocityRange = 50
+    emitterCell.velocityRange = 20
     emitterCell.emissionRange = CGFloat.pi * 2.0
 
     for childVc in segCtrls{
@@ -84,8 +89,24 @@ class MainViewController: UIViewController {
     controller.view.frame = containerView.bounds
     containerView.addSubview(controller.view)
     controller.didMove(toParentViewController: self)
+    previousController = controller
   }
 
+  @IBAction func onResetButtonPressed(_ sender: Any) {
+    guard let currentVC = previousController else{
+      return
+    }
+    let resetCell = CAEmitterCell()
+    resetCell.contents = #imageLiteral(resourceName: "Particle").cgImage
+
+    if let vc = currentVC as? ScaleAndFilterCtrlViewController{
+      vc.onEmitterCellChanged(newCell: resetCell)
+    }else if let vc = currentVC as? MotionAndTemporalCtrlViewController{
+      vc.onEmitterCellChanged(newCell: resetCell)
+    }else if let vc = currentVC as? ColorCtrlViewController{
+      vc.onEmitterCellChanged(newCell: resetCell)
+    }
+  }
 
 }
 

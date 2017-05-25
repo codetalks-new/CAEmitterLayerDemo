@@ -28,37 +28,41 @@ class ColorCtrlViewController: BaseCtrlViewController{
     alphaSlider.value = Float(alpha)
     alphaTextField.text = alpha.description
 
+    onBaseColorChanged()
+
 
     redRangeSlider.value = newCell.redRange
-    redRangeTextField.text = newCell.redRange.description
+    onRedRangeChanged(redRangeSlider)
 
 
     greenRangeSlider.value = newCell.greenRange
-    greenRangeTextField.text = newCell.greenRange.description
+    onGreenRangeChanged(greenRangeSlider)
 
 
     blueRangeSlider.value = newCell.blueRange
-    blueRangeTextField.text = newCell.blueRange.description
+    onBlueRangeChanged(blueRangeSlider)
 
 
     alphaRangeSlider.value = newCell.alphaRange
-    alphaRangeTextField.text = newCell.alphaRange.description
+    onAlphaRangeChanged(alphaRangeSlider)
 
 
     redSpeedSlider.value = newCell.redSpeed
-    redSpeedTextField.text = newCell.redSpeed.description
+    onRedSpeedChanged(redSpeedSlider)
 
 
     greenSpeedSlider.value = newCell.greenSpeed
-    greenSpeedTextField.text = newCell.greenSpeed.description
+    onGreenSpeedChanged(greenSpeedSlider)
 
 
     blueSpeedSlider.value = newCell.blueSpeed
-    blueSpeedTextField.text = newCell.blueSpeed.description
+    onBlueSpeedChanged(blueSpeedSlider)
 
 
     alphaSpeedSlider.value = newCell.alphaSpeed
-    alphaSpeedTextField.text = newCell.alphaSpeed.description
+    alphaSpeedSlider.minimumValue = -1
+    alphaSpeedSlider.maximumValue = 1
+    onAlphaSpeedChanged(alphaSpeedSlider)
 
 
   }

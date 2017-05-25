@@ -9,73 +9,73 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
     spinSlider.minimumValue = 0
     spinSlider.maximumValue = 1000
     spinSlider.value = Float(newCell.spin)
-    spinTextField.text = newCell.spin.description
+    onSpinChanged(spinSlider)
 
 
     spinRangeSlider.minimumValue = 1
     spinRangeSlider.maximumValue = 1000
     spinRangeSlider.value = Float(newCell.spinRange)
-    spinRangeTextField.text = newCell.spinRange.description
+    onSpinRangeChanged(spinRangeSlider)
 
 
     emissionLatitudeSlider.value = Float(newCell.emissionLatitude)
-    emissionLatitudeTextField.text = newCell.emissionLatitude.description
+    onEmissionLatitudeChanged(emissionLatitudeSlider)
 
 
     emissionLongitudeSlider.value = Float(newCell.emissionLongitude)
-    emissionLongitudeTextField.text = newCell.emissionLongitude.description
+    onEmissionLongitudeChanged(emissionLongitudeSlider)
 
 
     emissionRangeSlider.minimumValue = 0
     emissionRangeSlider.maximumValue = Float.pi * 2
     emissionRangeSlider.value = Float(newCell.emissionRange)
-    emissionRangeTextField.text = newCell.emissionRange.description
+    onEmissionRangeChanged(emissionRangeSlider)
 
     lifetimeSlider.minimumValue = 1
     lifetimeSlider.maximumValue = 10
     lifetimeSlider.value = Float(newCell.lifetime)
-    lifetimeTextField.text = newCell.lifetime.description
+    onLifetimeChanged(lifetimeSlider)
 
 
     lifetimeRangeSlider.minimumValue = 0
     lifetimeRangeSlider.maximumValue = 10
     lifetimeRangeSlider.value = Float(newCell.lifetimeRange)
-    lifetimeRangeTextField.text = newCell.lifetimeRange.description
+    onLifetimeRangeChanged(lifetimeRangeSlider)
 
 
     birthRateSlider.minimumValue = 0
     birthRateSlider.maximumValue = 1000
     birthRateSlider.value = Float(newCell.birthRate)
-    birthRateTextField.text = newCell.birthRate.description
+    onBirthRateChanged(birthRateSlider)
 
 
     velocitySlider.minimumValue = 0
     velocitySlider.maximumValue = 1000
     velocitySlider.value = Float(newCell.velocity)
-    velocityTextField.text = newCell.velocity.description
+    onVelocityChanged(velocitySlider)
 
 
     velocityRangeSlider.minimumValue = 0
     velocityRangeSlider.maximumValue = 1000
     velocityRangeSlider.value = Float(newCell.velocityRange)
-    velocityRangeTextField.text = newCell.velocityRange.description
+    onVelocityRangeChanged(velocityRangeSlider)
 
     
     xAccelerationSlider.minimumValue = -500
     xAccelerationSlider.maximumValue = 500
     xAccelerationSlider.value = Float(newCell.xAcceleration)
-    xAccelerationTextField.text = newCell.xAcceleration.description
+    onXAccelerationChanged(xAccelerationSlider)
 
     yAccelerationSlider.minimumValue = -500
     yAccelerationSlider.maximumValue = 500
     yAccelerationSlider.value = Float(newCell.yAcceleration)
-    yAccelerationTextField.text = newCell.yAcceleration.description
+    onYAccelerationChanged(yAccelerationSlider)
 
 
     zAccelerationSlider.minimumValue = -500
     zAccelerationSlider.maximumValue = 500
     zAccelerationSlider.value = Float(newCell.zAcceleration)
-    zAccelerationTextField.text = newCell.zAcceleration.description
+    onZAccelerationChanged(zAccelerationSlider)
 
 
   }

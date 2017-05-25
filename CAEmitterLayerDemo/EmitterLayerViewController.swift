@@ -179,7 +179,7 @@ class EmitterLayerViewController: UIViewController{
 
   @IBAction func chooseEmitterShape() {
     pick(from: EmitterShape.allCases,title:"Emitter Shape") { (shape) in
-      self.emitter?.emitterShape = shape.shape
+      self.emitter?.setValue(shape.shape, forKeyPath: "emitterShape")
       self.emitterShapeButton.setTitle(shape.title, for: .normal)
     }
   }
@@ -187,13 +187,14 @@ class EmitterLayerViewController: UIViewController{
   @IBAction func chooseRenderMode() {
     pick(from: RenderMode.allCases, title: "Render Mode") { (item) in
       self.emitter?.renderMode = item.mode
+      self.emitter?.setValue(item.mode, forKeyPath: "renderMode")
       self.renderModeButton.setTitle(item.title, for: .normal)
     }
   }
 
   @IBAction func chooseEmitterMode() {
     pick(from: EmitterMode.allCases, title: "Emitter Mode") { (item) in
-      self.emitter?.emitterMode = item.mode
+      self.emitter?.setValue(item.mode, forKeyPath: "emitterMode")
       self.emitterModeButton.setTitle(item.title, for: .normal)
     }
   }
