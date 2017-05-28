@@ -22,9 +22,11 @@ class MainViewController: UIViewController {
   let colorCtrl = Main.instantiateColorCtrl()
   let motionCtrl  = Main.instantiateMotionAndTemporalCtrl()
   let scaleCtrl = Main.instantiateScaleAndFilterCtrl()
+  let behaviorCtrl = Main.instantiateBehaviorCtrl()
+  let contentCtrl = Main.instantiateContentCtrl()
 
   var segCtrls:[UIViewController]{
-    return [emitterCtrl,scaleCtrl, motionCtrl, colorCtrl]
+    return [emitterCtrl,scaleCtrl, motionCtrl, colorCtrl, behaviorCtrl,contentCtrl]
   }
   
   override func viewDidLoad() {
@@ -40,8 +42,8 @@ class MainViewController: UIViewController {
 
     // create particle template
     let emitterCell = CAEmitterCell()
-    emitterCell.name = "fire"
-    emitterCell.contents = #imageLiteral(resourceName: "Particle").cgImage
+    emitterCell.name = "cross"
+    emitterCell.contents = #imageLiteral(resourceName: "particle_cross").cgImage
     emitterCell.birthRate = 300
     emitterCell.lifetime = 2.0
     emitterCell.lifetimeRange = 0.8
@@ -54,6 +56,9 @@ class MainViewController: UIViewController {
     emitterCell.velocityRange = 20
     emitterCell.emissionRange = CGFloat.pi * 2.0
 
+    behaviorCtrl.emitter = emitter
+    emitterCtrl.emitter = emitter
+    
     for childVc in segCtrls{
       // 访问 view 以便其执行加载 View 的初始化过程
       let frame = childVc.view.frame
@@ -66,7 +71,7 @@ class MainViewController: UIViewController {
     colorCtrl.set(emitter: emitter, emitterCell: emitterCell)
     motionCtrl.set(emitter: emitter, emitterCell: emitterCell)
     scaleCtrl.set(emitter: emitter, emitterCell: emitterCell)
-    emitterCtrl.emitter = emitter
+    contentCtrl.set(emitter: emitter, emitterCell: emitterCell)
     emitterCtrl.onEmitterLayerSetup(layer: emitter)
 
     segmentBar.selectedSegmentIndex = 0
@@ -97,13 +102,15 @@ class MainViewController: UIViewController {
       return
     }
     let resetCell = CAEmitterCell()
-    resetCell.contents = #imageLiteral(resourceName: "Particle").cgImage
+    resetCell.contents = #imageLiteral(resourceName: "particle_cross").cgImage
 
     if let vc = currentVC as? ScaleAndFilterCtrlViewController{
       vc.onEmitterCellChanged(newCell: resetCell)
     }else if let vc = currentVC as? MotionAndTemporalCtrlViewController{
       vc.onEmitterCellChanged(newCell: resetCell)
     }else if let vc = currentVC as? ColorCtrlViewController{
+      vc.onEmitterCellChanged(newCell: resetCell)
+    }else if let vc = currentVC as? ContentCtrlViewController{
       vc.onEmitterCellChanged(newCell: resetCell)
     }
   }

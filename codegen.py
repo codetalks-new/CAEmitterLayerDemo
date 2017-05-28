@@ -11,50 +11,35 @@ def camelize(name):
 
 
 def base_ctrl():
-    position_props = ['x','y', 'z']
-    size_props = ['width', 'height', 'depth']
-    all_props = position_props + size_props
+    contents_props = ['x', 'y', 'width','height']
+    all_props = contents_props
 
     stats = []
     stats.append("""
     import UIKit
-    class EmitterLayerViewController: UIViewController{
+    class BehaviorCtrlViewController: UITableViewController{
                  """)
 
-    stats.append("""
-      override func onEmitterLayerSetup(layer:CAEmitterLayer){
-      """)
-
-    init_tpl = Template("""
-    ${var}Slider.value = Float(layer.${var})
-    ${var}TextField.text = layer.${var}.description
-        """)
-    for var_name in  all_props :
-        init_stat = init_tpl.substitute(var=var_name)
-        stats.append(init_stat)
-    stats.append("""
-      }
-    """)
 
     for var_name in  all_props:
-        decl_stat = "@IBOutlet weak var %sSlider: UISlider!" % var_name
-        stats.append(decl_stat)
+        cell_stat = "@IBOutlet weak var %sSlider: UISlider!" % var_name
+        stats.append(cell_stat)
         decl_stat = "@IBOutlet weak var %sTextField: UITextField!" % var_name
         stats.append(decl_stat)
 
         event_func_tpl = Template("""
-    @IBAction func on${var_u}Changed(_ sender: Any) {
+    @IBAction func on${var_u}Changed(_ sender: UISlider) {
         let newValue = ${var}Slider.value
-                                emitter?.setValue(newValue,forKeyPath:"emitterCells.\(emitterCellName).${var}")
         ${var}TextField.text = newValue.description
+        onContentsRectChanged()
     }
 
     @IBAction func on${var_u}EditingDidEnd(_ sender: UITextField) {
     guard let newValue = Float(sender.text ?? "0") else {
       return
     }
-    emitter?.setValue(newValue,forKeyPath:"emitterCells.\(emitterCellName).${var}")
     ${var}Slider.setValue(newValue, animated: true)
+    onContentsRectChanged()
 
   }
 
@@ -68,10 +53,10 @@ def base_ctrl():
 
     stats.append("\n}")
 
-    with codecs.open(os.path.join(SRC_DIR,'EmitterLayerViewController.swift'),mode='w', encoding='utf-8') as fout:
-        fout.write("\n".join(stats))
-        # for stat in stats:
-            # fout.write(stat+"\n")
+    # with codecs.open(os.path.join(SRC_DIR,'BehaviorCtrlViewController.swift'),mode='w', encoding='utf-8') as fout:
+    #     fout.write("\n".join(stats))
+    for stat in stats:
+        print(stat+"\n")
 
 if __name__ == '__main__':
     base_ctrl()

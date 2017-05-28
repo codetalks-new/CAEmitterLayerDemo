@@ -55,11 +55,29 @@ enum StoryboardScene {
       return vc
     }
 
+    case behaviorCtrlScene = "behaviorCtrl"
+    static func instantiateBehaviorCtrl() -> CAEmitterLayerDemo.BehaviorCtrlViewController {
+      guard let vc = StoryboardScene.Main.behaviorCtrlScene.viewController() as? CAEmitterLayerDemo.BehaviorCtrlViewController
+      else {
+        fatalError("ViewController 'behaviorCtrl' is not of the expected class CAEmitterLayerDemo.BehaviorCtrlViewController.")
+      }
+      return vc
+    }
+
     case colorCtrlScene = "colorCtrl"
     static func instantiateColorCtrl() -> CAEmitterLayerDemo.ColorCtrlViewController {
       guard let vc = StoryboardScene.Main.colorCtrlScene.viewController() as? CAEmitterLayerDemo.ColorCtrlViewController
       else {
         fatalError("ViewController 'colorCtrl' is not of the expected class CAEmitterLayerDemo.ColorCtrlViewController.")
+      }
+      return vc
+    }
+
+    case contentCtrlScene = "contentCtrl"
+    static func instantiateContentCtrl() -> CAEmitterLayerDemo.ContentCtrlViewController {
+      guard let vc = StoryboardScene.Main.contentCtrlScene.viewController() as? CAEmitterLayerDemo.ContentCtrlViewController
+      else {
+        fatalError("ViewController 'contentCtrl' is not of the expected class CAEmitterLayerDemo.ContentCtrlViewController.")
       }
       return vc
     }
