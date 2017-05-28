@@ -12,6 +12,16 @@ class ContentCtrlViewController: BaseCtrlViewController {
   @IBOutlet weak var particleButton: UIButton!
 
   @IBAction func onChangeParticleButtonPressed(_ sender: UIButton) {
+    pick(from: ParticleImage.allCases, title: "请选择粒子图片") { (pi) in
+      self.changeParticleImage(newImage: pi.image)
+    }
+  }
+
+  func changeParticleImage(newImage:UIImage){
+    particleButton.setImage(newImage, for: .normal)
+    let cgimg = newImage.cgImage
+    // wrong: cell.contents = cgimg
+    emitter?.setValue(cgimg,forKeyPath:"emitterCells.\(emitterCellName).contents")
   }
 
   override func onEmitterCellChanged(newCell: CAEmitterCell) {
@@ -35,7 +45,7 @@ class ContentCtrlViewController: BaseCtrlViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    particleButton.backgroundColor = .black
     // Do any additional setup after loading the view.
   }
 
@@ -140,3 +150,46 @@ class ContentCtrlViewController: BaseCtrlViewController {
   }
   
 }
+
+//ParticleImage:s
+//cross
+//fire
+//flake
+//heart
+//ring
+//smoke
+//start_outline
+//triangle
+enum ParticleImage :String {
+        case cross =  "cross"
+        case fire =  "fire"
+        case flake =  "flake"
+        case heart =  "heart"
+        case ring =  "ring"
+        case smoke =  "smoke"
+        case starOutline =  "star_outline"
+        case triangle =  "triangle"
+
+
+    var title:String{
+      return rawValue
+    }
+
+  var image:UIImage{
+    switch self {
+    case .cross: return #imageLiteral(resourceName: "particle_cross")
+    case .fire: return #imageLiteral(resourceName: "particle_fire")
+    case .flake: return #imageLiteral(resourceName: "particle_flake")
+    case .heart : return #imageLiteral(resourceName: "particle_heart")
+    case .ring : return #imageLiteral(resourceName: "particle_ring")
+    case .smoke: return #imageLiteral(resourceName: "particle_smoke")
+    case .starOutline: return #imageLiteral(resourceName: "particle_star_outline")
+    case .triangle: return #imageLiteral(resourceName: "particle_triangle")
+    }
+  }
+
+    static let allCases:[ParticleImage] = [.cross, .fire, .flake, .heart, .ring, .smoke, .starOutline, .triangle ]
+}
+
+extension ParticleImage: PickerItem{ }
+
