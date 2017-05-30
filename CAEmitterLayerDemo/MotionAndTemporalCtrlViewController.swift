@@ -18,10 +18,14 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
     onSpinRangeChanged(spinRangeSlider)
 
 
+    emissionLatitudeSlider.minimumValue = 0.0
+    emissionLatitudeSlider.maximumValue = 6.3
     emissionLatitudeSlider.value = Float(newCell.emissionLatitude)
     onEmissionLatitudeChanged(emissionLatitudeSlider)
 
 
+    emissionLongitudeSlider.minimumValue = 0.0
+    emissionLongitudeSlider.maximumValue = 6.3
     emissionLongitudeSlider.value = Float(newCell.emissionLongitude)
     onEmissionLongitudeChanged(emissionLongitudeSlider)
 
@@ -49,14 +53,14 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
     onBirthRateChanged(birthRateSlider)
 
 
-    velocitySlider.minimumValue = 0
-    velocitySlider.maximumValue = 1000
+    velocitySlider.minimumValue = -20
+    velocitySlider.maximumValue = 500
     velocitySlider.value = Float(newCell.velocity)
     onVelocityChanged(velocitySlider)
 
 
     velocityRangeSlider.minimumValue = 0
-    velocityRangeSlider.maximumValue = 1000
+    velocityRangeSlider.maximumValue = 500
     velocityRangeSlider.value = Float(newCell.velocityRange)
     onVelocityRangeChanged(velocityRangeSlider)
 

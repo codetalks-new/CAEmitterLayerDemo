@@ -55,12 +55,21 @@
                                             <action selector="onSelectedSegmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="j0k-B4-N0T"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mp-0C-kUV">
+                                        <rect key="frame" x="23" y="-1" width="31" height="30"/>
+                                        <state key="normal" title="预设"/>
+                                        <connections>
+                                            <action selector="onChangePresetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sX8-Mq-a38"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="8Mp-0C-kUV" firstAttribute="centerY" secondItem="tPQ-KY-cBn" secondAttribute="centerY" id="21I-f4-JMg"/>
                                     <constraint firstItem="tPQ-KY-cBn" firstAttribute="centerX" secondItem="VXe-5e-DDY" secondAttribute="centerX" id="64d-Io-E7T"/>
                                     <constraint firstItem="mPV-mQ-m07" firstAttribute="leading" secondItem="VXe-5e-DDY" secondAttribute="leading" id="Bp8-eJ-2h1"/>
                                     <constraint firstItem="mPV-mQ-m07" firstAttribute="top" secondItem="tPQ-KY-cBn" secondAttribute="bottom" id="NRO-Wt-Ec7"/>
+                                    <constraint firstItem="tPQ-KY-cBn" firstAttribute="leading" secondItem="8Mp-0C-kUV" secondAttribute="trailing" id="WmI-vj-xzS"/>
                                     <constraint firstItem="tPQ-KY-cBn" firstAttribute="top" secondItem="VXe-5e-DDY" secondAttribute="top" id="YUN-e5-1Uc"/>
                                     <constraint firstAttribute="trailing" secondItem="mPV-mQ-m07" secondAttribute="trailing" id="b9V-FT-k9W"/>
                                     <constraint firstAttribute="trailing" secondItem="dDM-FT-1E5" secondAttribute="trailing" constant="8" id="g8G-4a-aGG"/>
@@ -85,6 +94,7 @@
                         <outlet property="containerView" destination="mPV-mQ-m07" id="6s5-vo-P71"/>
                         <outlet property="controlContainer" destination="VXe-5e-DDY" id="ZLI-ZD-EuP"/>
                         <outlet property="effectView" destination="dmy-Kf-LYL" id="dfx-jq-gJy"/>
+                        <outlet property="presetButton" destination="8Mp-0C-kUV" id="FWv-uw-wkD"/>
                         <outlet property="segmentBar" destination="tPQ-KY-cBn" id="1Uu-BD-Lc4"/>
                     </connections>
                 </viewController>
