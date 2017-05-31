@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
       NSLog("\(childVc) frame = \(frame)")
     }
 
-    update(emitter: fireEmitter)
+    update(emitter: giftEmitter)
 
     segmentBar.selectedSegmentIndex = 0
     switchToController(controller:emitterCtrl)
@@ -285,6 +285,43 @@ class MainViewController: UIViewController {
     
       return emitter
   }()
+
+  lazy var giftEmitter:CAEmitterLayer = {
+      let emitter = CAEmitterLayer()
+    let bounds = self.effectView.bounds
+    emitter.emitterPosition = CGPoint(x: bounds.midX, y: bounds.maxY)
+    emitter.emitterSize = CGSize(width: 4, height: 20)
+    emitter.renderMode = kCAEmitterLayerAdditive
+    emitter.emitterShape = kCAEmitterLayerLine
+
+
+    let heart = CAEmitterCell()
+    heart.contents = #imageLiteral(resourceName: "particle_heart").cgImage
+    heart.name = "heart"
+    heart.birthRate = 1.5
+    heart.lifetime = 7
+    heart.lifetimeRange = 3.6
+    heart.velocity = -20
+    heart.velocityRange = 10
+    heart.yAcceleration = -76
+    heart.alphaRange = 0.2
+    heart.blueRange = 0.4
+    heart.redRange = 1.0
+    heart.greenRange = 1.0
+    heart.color = UIColor(red: 0.76, green: 0.70, blue: 0.5, alpha: 1.0).cgColor
+    heart.emissionLatitude = CGFloat.pi * 0.4
+    heart.emissionLongitude = CGFloat.pi * 0.8
+    heart.emissionRange = CGFloat.pi * 1.3
+    heart.redSpeed = 0.65
+    heart.greenSpeed = 0.62
+    heart.blueSpeed = 0.036
+    
+
+    emitter.emitterCells = [heart]
+    
+    
+    return emitter
+  }()
 }
 
 
@@ -298,6 +335,7 @@ enum PresetEffect  {
             case flake
             case smoke
             case firework
+            case giftbubble
     var isFire:Bool{ return self == .fire }
     var isFlake:Bool{ return self == .flake }
     var isSmoke:Bool{ return self == .smoke }
@@ -309,10 +347,11 @@ enum PresetEffect  {
         case .flake:return "雪花"
         case .smoke:return "烟"
         case .firework:return "烟花"
+        case .giftbubble: return "礼物泡泡"
         }
     }
 
-    static let allCases:[PresetEffect] = [.fire, .flake, .firework ]
+    static let allCases:[PresetEffect] = [.fire, .flake, .firework, .giftbubble]
 }
 
 

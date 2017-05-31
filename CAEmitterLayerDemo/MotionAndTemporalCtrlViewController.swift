@@ -7,13 +7,13 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
 
 
     spinSlider.minimumValue = 0
-    spinSlider.maximumValue = 1000
+    spinSlider.maximumValue = 1
     spinSlider.value = Float(newCell.spin)
     onSpinChanged(spinSlider)
 
 
-    spinRangeSlider.minimumValue = 1
-    spinRangeSlider.maximumValue = 1000
+    spinRangeSlider.minimumValue = 0
+    spinRangeSlider.maximumValue = 1
     spinRangeSlider.value = Float(newCell.spinRange)
     onSpinRangeChanged(spinRangeSlider)
 
@@ -48,36 +48,36 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
 
 
     birthRateSlider.minimumValue = 0
-    birthRateSlider.maximumValue = 1000
+    birthRateSlider.maximumValue = 600
     birthRateSlider.value = Float(newCell.birthRate)
     onBirthRateChanged(birthRateSlider)
 
 
-    velocitySlider.minimumValue = -20
-    velocitySlider.maximumValue = 500
+    velocitySlider.minimumValue = -200
+    velocitySlider.maximumValue = 200
     velocitySlider.value = Float(newCell.velocity)
     onVelocityChanged(velocitySlider)
 
 
-    velocityRangeSlider.minimumValue = 0
-    velocityRangeSlider.maximumValue = 500
+    velocityRangeSlider.minimumValue = -100
+    velocityRangeSlider.maximumValue = 100
     velocityRangeSlider.value = Float(newCell.velocityRange)
     onVelocityRangeChanged(velocityRangeSlider)
 
     
-    xAccelerationSlider.minimumValue = -500
-    xAccelerationSlider.maximumValue = 500
+    xAccelerationSlider.minimumValue = -100
+    xAccelerationSlider.maximumValue = 100
     xAccelerationSlider.value = Float(newCell.xAcceleration)
     onXAccelerationChanged(xAccelerationSlider)
 
-    yAccelerationSlider.minimumValue = -500
-    yAccelerationSlider.maximumValue = 500
+    yAccelerationSlider.minimumValue = -100
+    yAccelerationSlider.maximumValue = 100
     yAccelerationSlider.value = Float(newCell.yAcceleration)
     onYAccelerationChanged(yAccelerationSlider)
 
 
-    zAccelerationSlider.minimumValue = -500
-    zAccelerationSlider.maximumValue = 500
+    zAccelerationSlider.minimumValue = -100
+    zAccelerationSlider.maximumValue = 100
     zAccelerationSlider.value = Float(newCell.zAcceleration)
     onZAccelerationChanged(zAccelerationSlider)
 
