@@ -18,13 +18,13 @@ class MotionAndTemporalCtrlViewController: BaseCtrlViewController{
     onSpinRangeChanged(spinRangeSlider)
 
 
-    emissionLatitudeSlider.minimumValue = 0.0
+    emissionLatitudeSlider.minimumValue = -6.3
     emissionLatitudeSlider.maximumValue = 6.3
     emissionLatitudeSlider.value = Float(newCell.emissionLatitude)
     onEmissionLatitudeChanged(emissionLatitudeSlider)
 
 
-    emissionLongitudeSlider.minimumValue = 0.0
+    emissionLongitudeSlider.minimumValue = -6.3
     emissionLongitudeSlider.maximumValue = 6.3
     emissionLongitudeSlider.value = Float(newCell.emissionLongitude)
     onEmissionLongitudeChanged(emissionLongitudeSlider)

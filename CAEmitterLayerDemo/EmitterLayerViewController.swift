@@ -29,13 +29,13 @@ class EmitterLayerViewController: UIViewController{
 
     let size = layer.emitterSize
     widthSlider.minimumValue = 1
-    widthSlider.maximumValue = 10
+    widthSlider.maximumValue = 300
     widthSlider.value = Float(size.width)
     widthTextField.text = size.width.description
 
 
     heightSlider.minimumValue = 1
-    heightSlider.maximumValue = 10
+    heightSlider.maximumValue = 300
     heightSlider.value = Float(size.height)
     heightTextField.text = size.height.description
 

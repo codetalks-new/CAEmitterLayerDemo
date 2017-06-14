@@ -14,8 +14,6 @@
 		3E3307291ED5661F0092CF7D /* ActionSheetPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307281ED5661F0092CF7D /* ActionSheetPresentationController.swift */; };
 		3E33072B1ED566C50092CF7D /* BasePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33072A1ED566C50092CF7D /* BasePickerViewController.swift */; };
 		3E33072D1ED568420092CF7D /* SimplePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33072C1ED568420092CF7D /* SimplePickerViewController.swift */; };
-		3E33072F1ED679DB0092CF7D /* BehaviorCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33072E1ED679DB0092CF7D /* BehaviorCtrlViewController.swift */; };
-		3E3307311ED688880092CF7D /* EmitterBehaviorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3307301ED688880092CF7D /* EmitterBehaviorTableViewCell.swift */; };
 		3E8E40221EDAFCFD0028FB3C /* ContentCtrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E40211EDAFCFD0028FB3C /* ContentCtrlViewController.swift */; };
 		3EA898671EB99D60005C9120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA898661EB99D60005C9120 /* AppDelegate.swift */; };
 		3EA898691EB99D60005C9120 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA898681EB99D60005C9120 /* MainViewController.swift */; };
@@ -35,8 +33,6 @@
 		3E3307281ED5661F0092CF7D /* ActionSheetPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPresentationController.swift; sourceTree = "<group>"; };
 		3E33072A1ED566C50092CF7D /* BasePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePickerViewController.swift; sourceTree = "<group>"; };
 		3E33072C1ED568420092CF7D /* SimplePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePickerViewController.swift; sourceTree = "<group>"; };
-		3E33072E1ED679DB0092CF7D /* BehaviorCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorCtrlViewController.swift; sourceTree = "<group>"; };
-		3E3307301ED688880092CF7D /* EmitterBehaviorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmitterBehaviorTableViewCell.swift; sourceTree = "<group>"; };
 		3E8E40211EDAFCFD0028FB3C /* ContentCtrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCtrlViewController.swift; sourceTree = "<group>"; };
 		3EA898631EB99D60005C9120 /* CAEmitterLayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAEmitterLayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA898661EB99D60005C9120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +100,6 @@
 				3EA898721EB99D60005C9120 /* Info.plist */,
 				3EA8987E1EBA1568005C9120 /* BaseCtrlViewController.swift */,
 				3E3307231ED535780092CF7D /* EmitterLayerViewController.swift */,
-				3E33072E1ED679DB0092CF7D /* BehaviorCtrlViewController.swift */,
-				3E3307301ED688880092CF7D /* EmitterBehaviorTableViewCell.swift */,
 				3E8E40211EDAFCFD0028FB3C /* ContentCtrlViewController.swift */,
 			);
 			path = CAEmitterLayerDemo;
@@ -209,13 +203,11 @@
 				3E33072D1ED568420092CF7D /* SimplePickerViewController.swift in Sources */,
 				3E3307241ED535780092CF7D /* EmitterLayerViewController.swift in Sources */,
 				3E8E40221EDAFCFD0028FB3C /* ContentCtrlViewController.swift in Sources */,
-				3E3307311ED688880092CF7D /* EmitterBehaviorTableViewCell.swift in Sources */,
 				3EA8987C1EBA0980005C9120 /* Storyboard+Resource.swift in Sources */,
 				3EA898671EB99D60005C9120 /* AppDelegate.swift in Sources */,
 				3E250C5E1ED3BD97002320CE /* MotionAndTemporalCtrlViewController.swift in Sources */,
 				3EA8987F1EBA1568005C9120 /* BaseCtrlViewController.swift in Sources */,
 				3ED12B441EBCB6B000BABB8A /* ColorCtrlViewController.swift in Sources */,
-				3E33072F1ED679DB0092CF7D /* BehaviorCtrlViewController.swift in Sources */,
 				3E3307291ED5661F0092CF7D /* ActionSheetPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

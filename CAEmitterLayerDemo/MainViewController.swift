@@ -23,11 +23,10 @@ class MainViewController: UIViewController {
   let colorCtrl = Main.instantiateColorCtrl()
   let motionCtrl  = Main.instantiateMotionAndTemporalCtrl()
   let scaleCtrl = Main.instantiateScaleAndFilterCtrl()
-  let behaviorCtrl = Main.instantiateBehaviorCtrl()
   let contentCtrl = Main.instantiateContentCtrl()
 
   var segCtrls:[UIViewController]{
-    return [emitterCtrl,scaleCtrl, motionCtrl, colorCtrl, behaviorCtrl,contentCtrl]
+    return [emitterCtrl,scaleCtrl, motionCtrl, colorCtrl,contentCtrl]
   }
 
   var cellCtrls:[BaseCtrlViewController]{
@@ -42,7 +41,7 @@ class MainViewController: UIViewController {
       NSLog("\(childVc) frame = \(frame)")
     }
 
-    update(emitter: giftEmitter)
+    update(emitter: liveFireworkEmitter)
 
     segmentBar.selectedSegmentIndex = 0
     switchToController(controller:emitterCtrl)
@@ -94,6 +93,12 @@ class MainViewController: UIViewController {
       update(emitter: fireworkEmitter)
     case .fire:
       update(emitter: fireEmitter)
+    case .giftbubble:
+      update(emitter: giftEmitter)
+    case .circleEffect:
+      update(emitter: circleEffect)
+    case .liveFirework:
+      update(emitter: liveFireworkEmitter)
     default:
       break
     }
@@ -113,8 +118,8 @@ class MainViewController: UIViewController {
     }
     emitterCtrl.emitter = emitter
     emitterCtrl.onEmitterLayerSetup(layer: emitter)
-    behaviorCtrl.emitter = emitter
-    behaviorCtrl.setupEmitter(emitter)
+
+
   }
 
   lazy var defaultEmitter:CAEmitterLayer = {
@@ -322,6 +327,144 @@ class MainViewController: UIViewController {
     
     return emitter
   }()
+
+  lazy var   circleEffect : CAEmitterLayer = {
+    let emitter = CAEmitterLayer()
+    let bounds = self.effectView.bounds
+    let innerBounds =  bounds
+    emitter.frame = bounds
+    emitter.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
+    emitter.emitterSize = CGSize(width: innerBounds.width * 0.5, height: innerBounds.height * 0.5)
+    emitter.renderMode = kCAEmitterLayerAdditive
+    emitter.emitterMode = kCAEmitterLayerOutline
+    emitter.emitterShape = kCAEmitterLayerCircle
+
+    //
+    let fire = CAEmitterCell()
+    fire.contents = #imageLiteral(resourceName: "particle_fire").cgImage
+    fire.name = "fire"
+
+    // 1) 缩放
+    fire.scale = 0.25
+    fire.scaleRange = 0.02
+    fire.scaleSpeed = -0.01
+
+    // 2) range
+    fire.emissionRange = CGFloat.pi * 2
+
+    // 3) Temporal
+    fire.birthRate = 240
+    fire.lifetime = 3.2
+    fire.lifetimeRange = 2.0
+
+    // 4) move
+    fire.velocity = -2.8
+    fire.velocityRange = 5
+
+    // 5) color
+    fire.color = UIColor(red: 0.51, green: 0.25, blue: 0.28, alpha: 1.0).cgColor
+    fire.redRange = 0.73
+    fire.greenRange = 0.4
+    fire.blueRange = 0.4
+    fire.alphaRange = 0.2
+
+    fire.redSpeed = 0.36
+    fire.greenSpeed = 0.16
+
+
+    emitter.emitterCells = [fire]
+    return emitter
+  }()
+
+  lazy var liveFireworkEmitter: CAEmitterLayer = {
+    let bounds = self.effectView.bounds
+    let mortor = CAEmitterLayer()
+    mortor.emitterPosition = CGPoint(x:bounds.midX, y:bounds.midY)
+    mortor.renderMode = kCAEmitterLayerAdditive
+
+    //Invisible particle representing the rocket before the explosion
+    let rocket = CAEmitterCell()
+    rocket.emissionLongitude = CGFloat.pi / 2
+    rocket.emissionLatitude = 0
+    rocket.lifetime = 1.6
+    rocket.birthRate = 2
+    rocket.velocity = -400
+    rocket.velocityRange = 100
+    rocket.yAcceleration = -250
+    rocket.emissionRange = CGFloat.pi / 4
+    rocket.color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5).cgColor
+    rocket.redRange = 0.9
+    rocket.greenRange = 0.5
+    rocket.blueRange = 0.0
+
+    //Name the cell so that it can be animated later using keypath
+    rocket.name = "rocket"
+
+
+    let img = #imageLiteral(resourceName: "particle_tspark").cgImage
+    //Flare particles emitted from the rocket as it flys
+    let flare = CAEmitterCell()
+    flare.contents = img
+    flare.emissionLongitude = (4 * CGFloat.pi) / 2
+    flare.scale = 0.4
+    flare.velocity = -100
+    flare.birthRate = 45
+    flare.lifetime = 1.5
+    flare.yAcceleration = -350
+    flare.emissionRange = CGFloat.pi / 7
+    flare.alphaSpeed = -0.7
+    flare.scaleSpeed = -0.1
+    flare.scaleRange = 0.1
+    flare.beginTime = 0.01
+    flare.duration = 0.7
+
+    //The particles that make up the explosion
+    let firework = CAEmitterCell()
+    firework.contents = img
+    firework.birthRate = 6666
+    firework.scale = 0.6
+    firework.velocity = 130
+    firework.lifetime = 2
+    firework.alphaSpeed = -0.2
+    firework.yAcceleration = 80
+    firework.beginTime = 1.5
+    firework.duration = 0.1
+    firework.emissionRange = 2 * CGFloat.pi
+    firework.scaleSpeed = -0.1
+    firework.spin = 1
+
+    //Name the cell so that it can be animated later using keypath
+    firework.name = "firework"
+
+    //preSpark is an invisible particle used to later emit the spark
+    let preSpark = CAEmitterCell()
+    preSpark.birthRate = 80
+    preSpark.velocity = firework.velocity * 0.70
+    preSpark.lifetime = 1.7
+    preSpark.yAcceleration = firework.yAcceleration * 0.85
+    preSpark.beginTime = firework.beginTime - 0.2
+    preSpark.emissionRange = firework.emissionRange
+    preSpark.greenSpeed = 100
+    preSpark.blueSpeed = 100
+    preSpark.redSpeed = 100
+
+    //Name the cell so that it can be animated later using keypath
+    preSpark.name = "preSpark"
+
+    //The 'sparkle' at the end of a firework
+    let spark = CAEmitterCell()
+    spark.contents = img
+    spark.lifetime = 0.05
+    spark.yAcceleration = 250
+    spark.beginTime = 0.8
+    spark.scale = 0.4
+    spark.birthRate = 10
+    
+    preSpark.emitterCells = [spark]
+    rocket.emitterCells = [flare, firework, preSpark]
+    mortor.emitterCells = [rocket]
+    return mortor
+  }()
 }
 
 
@@ -336,6 +479,8 @@ enum PresetEffect  {
             case smoke
             case firework
             case giftbubble
+            case circleEffect
+            case liveFirework
     var isFire:Bool{ return self == .fire }
     var isFlake:Bool{ return self == .flake }
     var isSmoke:Bool{ return self == .smoke }
@@ -346,12 +491,14 @@ enum PresetEffect  {
         case .fire:return "火花"
         case .flake:return "雪花"
         case .smoke:return "烟"
-        case .firework:return "烟花"
+        case .firework:return "一个烟花"
         case .giftbubble: return "礼物泡泡"
+        case .circleEffect: return "花环"
+        case .liveFirework: return "放烟花"
         }
     }
 
-    static let allCases:[PresetEffect] = [.fire, .flake, .firework, .giftbubble]
+    static let allCases:[PresetEffect] = [.fire, .flake, .firework, .giftbubble, .circleEffect, .liveFirework]
 }
 
 
